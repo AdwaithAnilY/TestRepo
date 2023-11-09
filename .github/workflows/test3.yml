@@ -1,0 +1,25 @@
+name: Software
+
+on:
+  workflow_dispatch:
+    inputs:
+      software_name:
+        description: Software Name
+        default: "Myapplication"
+      software_version:
+        description: Software Version
+        default: "7.9"
+      OS:
+        description: Operating System
+        default: "Linux"
+      region:
+        description: Region
+        default: "Asia"
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send greeting
+      run: echo "Hello from ${{ github.event.inputs.software_name }} ${{ github.event.inputs.software_version }} running on ${{ github.event.inputs.OS }} in ${{ github.event.inputs.region }}"
